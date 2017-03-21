@@ -1,0 +1,21 @@
+NAME="osinfo-db"
+VERSION=20170225
+RELEASE=1
+CATEGORY="System"
+SUMMARY="OS info database"
+DESCRIPTION="libosinfo is a project providing information about operating
+systems, hypervisors and the (virtual) hardware devices they can support.
+This package contains the database used by libosinfo."
+HOMEPAGE="https://libosinfo.org/"
+# we do not want this unpacked, osinfo-db-import will do that
+SRC_URI="https://releases.pagure.org/libosinfo/osinfo-db-${VERSION}.tar.xz#/osinfo-db-${VERSION}.dat"
+SRC_DIR=.
+
+ARCH=noarch
+
+src_compile() { :; }
+
+src_install() {
+	cd ${S}
+	osinfo-db-import --root ${D} --dir /usr/share/osinfo osinfo-db-${VERSION}.dat
+}

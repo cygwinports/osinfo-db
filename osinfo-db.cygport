@@ -1,5 +1,5 @@
 NAME="osinfo-db"
-VERSION=20170225
+VERSION=20180325
 RELEASE=1
 CATEGORY="System"
 SUMMARY="OS info database"
